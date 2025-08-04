@@ -12,3 +12,11 @@ insert into jogos_usuarios (id_usuario, id_jogo) values (5, 1);
 
 insert into jogos_usuarios (id_usuario, id_jogo) values ((select id_usuario from usuarios where usuario = 'Arthur'), 1);
 insert into jogos_usuarios (id_usuario, id_jogo) values ((select id_usuario from usuarios where usuario = 'Arthur'), 2);
+
+DELETE FROM jogos_usuarios;
+
+select * from jogos;
+select * from jogos_usuarios;
+select * from total_jogador;
+
+delete from jogos_usuarios where id_jogo_usuario = 11;

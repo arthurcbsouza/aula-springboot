@@ -1,4 +1,10 @@
 -- SELECT CAMPOS FROM TABELA
+select * from jogos;
+
+select * from jogos_usuarios;
+
+select * from total_jogador;
+
 select * from usuarios where ( pais is not null and nome is null and senha <> 'lootear' ) or senha = '1234';
 
 select

@@ -4,5 +4,8 @@
     <file url="file://$PROJECT_DIR$/Database/Scritps/03 - Delete.sql" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/Database/Scritps/04 - Select.sql" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/Database/Scritps/05 - Update.sql" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/Database/Scritps/06 - Select Avançado.sql" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/Database/Scritps/07 - Triggers.sql" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/Database/Scritps/08 - View.sql" dialect="GenericSQL" />
   </component>
 </project>
