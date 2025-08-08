@@ -1,0 +1,28 @@
+<table class="dataTable">
+  <tr>
+    <td *ngFor="let entrada of displayedColumns">
+      {{ entrada }}
+    </td>
+  </tr>
+  <!-- Angular padrão até o 16 -->
+  <tr *ngFor="let element of dataSource" [class]="getRowStyle(element)" >
+      <td>{{ element.position }}</td>
+      <td>{{ element.name }}</td>
+      <td>{{ element.weight }}</td>
+      <td>{{ element.symbol }}</td>
+      <button *ngIf="element.symbol == 'C'">Click</button>
+  </tr>
+
+  <!-- Angular da versão 17 pra frente ( mas ainda suporta o *ngFor ) -->
+  @for (chemicalElement of dataSource; track chemicalElement.position) {
+    <tr [class]="getRowStyle(chemicalElement)">
+      <td>{{ chemicalElement.position }}</td>
+      <td>{{ chemicalElement.name }}</td>
+      <td>{{ chemicalElement.weight }}</td>
+      <td>{{ chemicalElement.symbol }}</td>
+      @if (chemicalElement.symbol == 'C') {
+        <button>Click</button>
+      }
+    </tr>
+  }
+</table>

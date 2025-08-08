@@ -1,1 +1,6 @@
-<div class="headerRoot" (click)="executeClick()">{{title}}</div>
+<div [class]="styleClass">
+  <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+    <mat-button-toggle value="underline" style="width: 80px" (click)="internalClickHandler()">{{ buttonText }}</mat-button-toggle>
+    <mat-button-toggle value="underline" (click)="internalCloseHandler(closeClickValue)">X</mat-button-toggle>
+  </mat-button-toggle-group>
+</div>

@@ -1,7 +1,6 @@
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Injectable} from "@angular/core";
-import {BasicClass} from "../dto/BasicClass";
 import {ResponseEnvelope} from "../dto/internal/ResponseEnvelope";
 
 @Injectable({
