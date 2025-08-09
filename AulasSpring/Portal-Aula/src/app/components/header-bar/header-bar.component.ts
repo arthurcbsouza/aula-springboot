@@ -1,4 +1,5 @@
 import {Component, Input} from '@angular/core';
+import {Router} from '@angular/router';
 import {BasicService} from "../../services/basic.service";
 
 @Component({
@@ -24,8 +25,19 @@ export class HeaderBarComponent {
 
   callBack : any | undefined;
 
-  constructor(private basic : BasicService) {
+  message : string | undefined;
 
+  constructor(private basic : BasicService, private router : Router) {
+
+  }
+
+  protected async navigateTo(route : string) {
+    await this.router.navigate([route]);
+  }
+
+  protected async navigateWithParams(route : string, params : string) {
+    this.message = params;
+    await this.router.navigate([route, this.message]);
   }
 
   protected internalClickHandler() : void {
@@ -46,5 +58,7 @@ export class HeaderBarComponent {
       this.callBack = undefined;
     }
   }
+
+
 
 }

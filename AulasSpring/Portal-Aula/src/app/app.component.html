@@ -2,6 +2,6 @@
   <app-header-bar #mainHeader styleClass="header" buttonText="Header" [butonClick]="topHeaderClick" [closeClick]="bottomHeaderClick" closeClickValue="Arthur"></app-header-bar>
   <app-header-bar #mainFooter  styleClass="footer" buttonText="Footer" [butonClick]="topHeaderClick" [closeClick]="bottomHeaderClick" closeClickValue="Tiago"></app-header-bar>
   <div class="child">
-    <app-data-table></app-data-table>
+    <router-outlet></router-outlet>
   </div>
 </div>

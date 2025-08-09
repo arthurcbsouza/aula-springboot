@@ -1,6 +1,23 @@
 <div [class]="styleClass">
+  <!--
   <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
     <mat-button-toggle value="underline" style="width: 80px" (click)="internalClickHandler()">{{ buttonText }}</mat-button-toggle>
     <mat-button-toggle value="underline" (click)="internalCloseHandler(closeClickValue)">X</mat-button-toggle>
   </mat-button-toggle-group>
+  -->
+
+  <button matButton [matMenuTriggerFor]="menu">Menu</button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="navigateTo('/home')">Home</button>
+    <button mat-menu-item (click)="navigateTo('/test')">Teste</button>
+    <button mat-menu-item (click)="navigateWithParams('/pageWithParams', 'Ola via código !!!')">Params</button>
+  </mat-menu>
+
+  <table>
+    <tr>
+      <td><a [routerLink]="['/home']">Home</a></td>
+      <td><a [routerLink]="['/test']">Teste</a></td>
+      <td><a [routerLink]="['/pageWithParams', 'Ola !!!']">Params</a></td>
+    </tr>
+  </table>
 </div>

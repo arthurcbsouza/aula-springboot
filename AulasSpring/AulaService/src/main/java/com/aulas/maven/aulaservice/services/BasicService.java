@@ -17,7 +17,7 @@ public class BasicService {
 
     public BasicService() {
         this.basicClasses.put("Arthur", new BasicClass(1, "Arthur", 47));
-        this.basicClasses.put("Space", new BasicClass(1, "Lerandro", 24));
+        this.basicClasses.put("Space", new BasicClass(1, "Leandro", 24));
         this.basicClasses.put("Thiago", new BasicClass(1, "Thiago", 29));
     }
 

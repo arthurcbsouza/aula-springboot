@@ -1,7 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import {PaginaTesteComponent} from "./pages/pagina-teste/pagina-teste.component";
+import {AppComponent} from "./app.component";
+import {MainPageComponent} from "./pages/main-page/main-page.component";
+import {PageParamsComponent} from "./pages/page-params/page-params.component";
 
-const routes: Routes = [];
+const routes: Routes = [
+  { path : 'home', component: MainPageComponent },
+  { path : 'test', component: PaginaTesteComponent },
+  { path : 'pageWithParams/:message', component: PageParamsComponent }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -10,12 +10,20 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import { DataTableComponent } from './components/data-table/data-table.component';
 import {MatTableModule} from "@angular/material/table";
+import {PaginaTesteComponent} from "./pages/pagina-teste/pagina-teste.component";
+import {MainPageComponent} from "./pages/main-page/main-page.component";
+import {MatMenu, MatMenuModule} from "@angular/material/menu";
+import {MatButtonModule} from "@angular/material/button";
+import {PageParamsComponent} from "./pages/page-params/page-params.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderBarComponent,
-    DataTableComponent
+    DataTableComponent,
+    MainPageComponent,
+    PaginaTesteComponent,
+    PageParamsComponent
   ],
   imports: [
     BrowserModule,
@@ -23,9 +31,15 @@ import {MatTableModule} from "@angular/material/table";
     HttpClientModule,
     BrowserAnimationsModule,
     MatButtonToggleModule,
-    MatTableModule
+    MatTableModule,
+    MatMenu,
+    MatButtonModule,
+    MatMenuModule
   ],
   providers: [BasicService],
+  exports: [
+    DataTableComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
