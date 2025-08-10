@@ -15,6 +15,10 @@ import {MainPageComponent} from "./pages/main-page/main-page.component";
 import {MatMenu, MatMenuModule} from "@angular/material/menu";
 import {MatButtonModule} from "@angular/material/button";
 import {PageParamsComponent} from "./pages/page-params/page-params.component";
+import {MatFormField, MatLabel} from "@angular/material/form-field";
+import {MatInput} from "@angular/material/input";
+import {FirstFormComponent} from "./pages/first-form/first-form.component";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -23,7 +27,8 @@ import {PageParamsComponent} from "./pages/page-params/page-params.component";
     DataTableComponent,
     MainPageComponent,
     PaginaTesteComponent,
-    PageParamsComponent
+    PageParamsComponent,
+    FirstFormComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +39,12 @@ import {PageParamsComponent} from "./pages/page-params/page-params.component";
     MatTableModule,
     MatMenu,
     MatButtonModule,
-    MatMenuModule
+    MatMenuModule,
+    MatFormField,
+    MatLabel,
+    MatInput,
+    MatButtonModule,
+    FormsModule
   ],
   providers: [BasicService],
   exports: [

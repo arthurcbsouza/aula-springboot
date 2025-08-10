@@ -1,0 +1,16 @@
+<div>
+  <section style="padding-bottom: 10px; padding-top: 10px">
+    <label>{{headerText}}</label>
+  </section>
+  <mat-form-field>
+    <mat-label>Input</mat-label>
+    <input [(ngModel)]="valor" matInput>
+  </mat-form-field>
+  <section>
+    <button matButton="tonal" (click)="pegarValorFormulario()">Pegar</button>
+    <button matButton="tonal" (click)="setaValorFormulario()">Setar</button>
+    <button matButton="tonal" (click)="updateHeader()">Update</button>
+    <button matButton="tonal" (click)="avisarPai()">Avisar Pai</button>
+    <button matButton="tonal" (click)="cancelar()">Cancelar</button>
+  </section>
+</div>
