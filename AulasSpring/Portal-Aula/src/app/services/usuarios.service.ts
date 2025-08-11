@@ -2,25 +2,23 @@ import {Injectable} from "@angular/core";
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {ResponseEnvelope} from "../dto/internal/ResponseEnvelope";
+import {ServiceBase} from "./base/service.base.service";
 
 @Injectable({
   providedIn: "root",
 })
-export class UsuariosService {
+export class UsuariosService extends ServiceBase  {
 
-  private BACKEND_URL : string = 'http://localhost:8080';
-
-  public BACKEND_MESSAGE_URL= 'message';
-
-  constructor (private http : HttpClient) {
+  public override getUrl(): string {
+    return 'http://localhost:8080';
   }
 
   public logon() : Observable<string> {
-    return this.http.get('http://localhost:8080/basic/logon', { responseType : 'text'});
+    return this.invokeBackend(this.mountUrl(['basic','logon']), { responseType : 'text'});
   }
 
   public logoff() : Observable<string> {
-    return this.http.get('http://localhost:8080/basic/logoff', { responseType : 'text'});
+    return this.invokeBackend(this.mountUrl(['basic','logoff']), { responseType : 'text'});
   }
 
 }
