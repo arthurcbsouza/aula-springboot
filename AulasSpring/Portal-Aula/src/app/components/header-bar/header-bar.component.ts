@@ -1,13 +1,16 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {BasicService} from "../../services/basic.service";
+import {UsuariosService} from "../../services/usuarios.service";
+import {ResponseEnvelope} from "../../dto/internal/ResponseEnvelope";
+import {BehaviorSubject, Subscription} from "rxjs";
 
 @Component({
   selector: 'app-header-bar',
   templateUrl: './header-bar.component.html',
   styleUrls: ['./header-bar.component.css']
 })
-export class HeaderBarComponent {
+export class HeaderBarComponent implements OnInit, AfterViewInit, OnDestroy {
 
   @Input() butonClick: () => void = () => {};
 
@@ -27,8 +30,58 @@ export class HeaderBarComponent {
 
   message : string | undefined;
 
-  constructor(private basic : BasicService, private router : Router) {
+  isLogged = new BehaviorSubject<boolean | null>(false);
 
+  public isUserLogged$ = this.isLogged.asObservable();
+
+  userSessionLogged : Subscription | undefined;
+
+  loggedMessage : string = "Not logged in";
+
+  constructor(private basic : BasicService, private usuariosService : UsuariosService, private router : Router) {
+
+  }
+
+  ngOnInit() {
+    this.userSessionLogged = this.isUserLogged$.subscribe((value : boolean | null) => {
+      if (value == true) {
+        this.loggedMessage = "Usuario conectado";
+      } else {
+        this.loggedMessage = "Usuario desconectado";
+      }
+      // Grava nbo contexto do navegador
+      localStorage.setItem("userSessionLogged", JSON.stringify(value));
+      // Grava no contexto da aba aberta dop navegador
+      sessionStorage.setItem("userSessionLogged", JSON.stringify(value));
+    });
+  }
+
+  ngAfterViewInit(): void {
+
+  }
+
+  ngOnDestroy() {
+    if ( this.userSessionLogged !== null ) {
+      this.userSessionLogged?.unsubscribe();
+    }
+  }
+
+  logon() : void {
+    this.usuariosService.logon().subscribe({
+      next: (value : string)=> {
+        this.isLogged.next(true);
+      },
+      error: error => { console.log(error);}
+    });
+  }
+
+  logoff() : void {
+    this.usuariosService.logoff().subscribe({
+      next: (value : string)=> {
+        this.isLogged.next(false);
+      },
+      error: error => { console.log(error);}
+    });
   }
 
   protected async navigateTo(route : string) {

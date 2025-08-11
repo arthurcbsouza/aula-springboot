@@ -36,4 +36,16 @@ public class BasicController {
     public ResponseEntity<ResponseEnvelope<BasicClass>> getUserObject(String userName) {
         return this.basicService.getUserObject(userName);
     }
+
+    @GetMapping("/logon")
+    public String logon() {
+        System.out.println("Logon called");
+        return "true";
+    }
+
+    @GetMapping("/logoff")
+    public String logoff() {
+        System.out.println("Logoff called");
+        return "false";
+    }
 }

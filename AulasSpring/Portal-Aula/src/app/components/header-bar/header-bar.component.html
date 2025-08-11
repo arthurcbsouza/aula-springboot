@@ -1,3 +1,8 @@
+<div>
+  <section style="padding-bottom: 10px; padding-top: 10px">
+    <label>{{ loggedMessage }}</label>
+  </section>
+</div>
 <div [class]="styleClass">
   <!--
   <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
@@ -5,13 +10,14 @@
     <mat-button-toggle value="underline" (click)="internalCloseHandler(closeClickValue)">X</mat-button-toggle>
   </mat-button-toggle-group>
   -->
-
   <button matButton [matMenuTriggerFor]="menu">Menu</button>
   <mat-menu #menu="matMenu">
     <button mat-menu-item (click)="navigateTo('/home')">Home</button>
     <button mat-menu-item (click)="navigateTo('/test')">Teste</button>
     <button mat-menu-item (click)="navigateWithParams('/pageWithParams', 'Ola via código !!!')">Params</button>
     <button mat-menu-item (click)="navigateTo('/first-form')">Formulario</button>
+    <button mat-menu-item (click)="logon()">Logon</button>
+    <button mat-menu-item (click)="logoff()">Logoff</button>
   </mat-menu>
 
   <!--
